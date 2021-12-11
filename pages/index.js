@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
 import getPokemons from '../services/api-service';
@@ -13,17 +14,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="body_main">
-      <main >
+    <div >
+      <header>
+
+      </header>
+      <main className="body_main">
         <h1 className="title">
           pokemon
         </h1>
-        <ul>
+        <Grid container spacing={2} columns={{ xs: 2, sm: 8, md: 12 }}>
           {pokemons.map(function(pokemon, i){
               return <CardPokemon pokemon={pokemon}  key={i} />;
           })}
-        </ul>
+        </Grid>
       </main>
+      <aside></aside>
     </div>
   )
 }

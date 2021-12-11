@@ -1,9 +1,9 @@
-import { Card } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 
 export default function CardPokemon({pokemon}) {
   const imagePokemon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   return (
-    <li>
+    <Grid item xs={12} sm={4} md={4}>
         <Card className="card_pokemon">
             <img
                 className="img_pokemon"
@@ -19,6 +19,6 @@ export default function CardPokemon({pokemon}) {
                 </ul>
             </div>
         </Card>
-    </li>
+    </Grid>
   )
 }
