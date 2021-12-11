@@ -30,7 +30,6 @@ header{
 
 .body_main {
     background-color: #e9e9e9;
-    display: grid;
     padding-top: 80px;
 }
 
@@ -87,4 +86,20 @@ header{
     text-transform: capitalize;
     color: #607D8B;
     border: 1px solid  #ECEFF1;
+}
+
+.card_aside {
+    height: 85vh;
+    margin: 15px;
+    position: fixed;
+    width: 450px;
+    padding: 10px;
+}
+
+.title_aside {
+    color: #263238;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
 }
