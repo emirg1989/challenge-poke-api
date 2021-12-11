@@ -1,0 +1,75 @@
+h3 {
+    color: black;
+    font-weight: 900;
+    
+}
+
+body {
+    margin:0px;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.body_main {
+    background-color: #e9e9e9;
+    display: grid;
+}
+
+.number_pokemon {
+    align-self: center;
+    color: #6D6D6D;
+    font-family: monospace;
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+    font-size: 16px;
+}
+
+.title_pokemon {
+    color: #FF452B;
+    text-transform: capitalize;
+    font-weight: 600;
+    align-self: center;
+    font-family: monospace;
+    margin: 5px 0 5px 0;
+    font-size: 18px;
+}
+
+.img_pokemon {
+    height: 120px;
+    width: 120px;
+    align-self: center;
+    margin-bottom: 5px;
+}
+
+.card_pokemon {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    height: 15rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.336) !important;
+}
+
+.list_pokemon_type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 2rem;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+.pill_pokemon_type {
+    background-color: white;
+    width: 90px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #607D8B;
+    border: 1px solid  #ECEFF1;
+}
