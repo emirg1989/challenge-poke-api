@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react';
 import getPokemons from '../services/api-services';
 
 export default function Home() {
