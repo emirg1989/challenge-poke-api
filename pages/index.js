@@ -1,26 +1,27 @@
-import Head from 'next/head'
 import { useEffect, useState } from 'react';
-import getPokemons from '../services/api-services';
+import getPokemons from '../services/api-service';
 
 export default function Home() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(()=>{
     getPokemons().then((data) => {
-      setPokemons(data.results);
+      console.log(data);
+      setPokemons(data);
     });
   }, []);
+
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         <h1 className="title">
           pokemon
         </h1>
+        <ul>
+          {pokemons.map(function(pokemon, i){
+              return <li  key={i}>{pokemon.name}</li>;
+          })}
+        </ul>
       </main>
 
       <style jsx>{``}</style>
@@ -33,6 +34,10 @@ export default function Home() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+        }
+
+        h3 {
+          color: black;
         }
 
         * {
