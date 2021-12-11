@@ -4,7 +4,16 @@ import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
 import getPokemons from '../services/api-service';
 
-function Home({pokemons}) {
+export default function Home() {
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(()=>{
+    getPokemons().then((data) => {
+      console.log(data);
+      setPokemons(data);
+    });
+  }, []);
+
   return (
     <div >
       <header>
@@ -24,12 +33,5 @@ function Home({pokemons}) {
       </main>
       <aside></aside>
     </div>
-  )  
+  )
 }
-export async function getServerSideProps() {
-  const pokemons = await getPokemons();
-  console.log(pokemons);
-  return { props: { pokemons } }
-}
-
-export default Home;
