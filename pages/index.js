@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
 import DetailPokemon from '../components/detailPokemon';
+import LoaderPage from '../components/loaderPage';
 import SelectPokemon from '../components/selectPokemon';
 import getPokemons from '../services/api-service';
 import filterPokemons from '../services/filterPokemon-service';
@@ -10,19 +11,20 @@ import { PokemonProvider } from '../store/ContextPokemonData';
 
 export default function Home() {
   const [pokemons, setPokemons] = useState([]);
+  const [showLoader, setShowLoader] = useState(true);
   const [copyPokemons, setCopyPokemons] = useState([]);
   const [type, setType] = useState("all");
 
   useEffect(()=>{
     getPokemons().then((data) => {
-      console.log(data);
       setPokemons(data);
       setCopyPokemons(data);
+      setShowLoader(false);
     });
   }, []);
 
   const handleChange = (event) => {
-    const typeSelected = event.target.value
+    const typeSelected = event.target.value;
     setType(typeSelected);
     const newListPokemon = filterPokemons(pokemons, copyPokemons, typeSelected);
     setPokemons(newListPokemon);
@@ -30,7 +32,7 @@ export default function Home() {
 
   return (
     <PokemonProvider>
-    <div>
+     <div>
       <header>
         <div className="logo_header">
           <Image src="/logo-pokemon.png" width={150} height={50} />
@@ -49,13 +51,13 @@ export default function Home() {
               </Grid>
             </Grid>
             <Grid p={2} container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {pokemons.map(function(pokemon, i){
+              {!showLoader ? pokemons.map(function(pokemon, i){
                   return <CardPokemon pokemon={pokemon} key={i} />;
-              })}
+              }) : <LoaderPage/>}
             </Grid>
           </div>
         </Grid>
-        <Grid item xs={0} sm={0} md={4}>
+        <Grid item xs={0} sm={0} md={4} display={{ xs: "none", lg: "flex" }}>
             <Card className="card_aside"><DetailPokemon /></Card>
         </Grid>
       </Grid>
