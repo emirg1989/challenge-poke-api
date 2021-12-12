@@ -1,10 +1,10 @@
-import { Card, Grid, Modal, Slide } from "@mui/material";
+import { Card, Grid} from "@mui/material";
 import React, { useContext } from "react";
-import { ContextPokemonData } from "../store/ContextPokemonData";
-import DetailPokemon from "./detailPokemon";
-import IDPokemon from "./idPokemon";
+import { ContextPokemonData } from "../../store/ContextPokemonData";
+import IDPokemon from "../atoms/idPokemon";
+import ModalPokemon from "./modalPokemon";
 import PokemonTypes from "./pokemonTypes";
-import TitlePokemon from "./titlePokemon";
+import TitlePokemon from "../atoms/titlePokemon";
 
 export default function CardPokemon({pokemon}) {
   const [open, setOpen] = React.useState(false);
@@ -31,22 +31,7 @@ export default function CardPokemon({pokemon}) {
             <TitlePokemon name={pokemon.name}/>
             <PokemonTypes types={pokemon.types} />
         </Card>
-        <Modal
-            open={open}
-            onClose={handleClose}
-            style={{display:'flex',alignItems:'center',justifyContent:'center'}}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-            disableAutoFocus={true}
-            keepMounted
-        >
-            <Slide direction="up" in={open} mountOnEnter unmountOnExit>
-            <div className="body_modal">
-                <DetailPokemon showClose={true} handleClose={handleClose} />
-            </div>
-            </Slide>
-           
-        </Modal>
+        <ModalPokemon handleClose={handleClose} open={open}/>
     </Grid>
   )
 }

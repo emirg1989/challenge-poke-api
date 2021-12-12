@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ContextPokemonData } from "../store/ContextPokemonData";
-import IDPokemon from "./idPokemon";
-import PokemonTypes from "./pokemonTypes";
-import TitlePokemon from "./titlePokemon";
+import { ContextPokemonData } from "../../store/ContextPokemonData";
+import IDPokemon from "../atoms/idPokemon";
+import PokemonTypes from "../molecules/pokemonTypes";
+import TitlePokemon from "../atoms/titlePokemon";
 
 export default function DetailPokemon({showClose = false, handleClose}) {
   const {pokemonData} = useContext(ContextPokemonData);

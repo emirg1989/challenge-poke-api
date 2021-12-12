@@ -1,10 +1,10 @@
 import { Card, Grid } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import CardPokemon from '../components/cardPokemon';
-import DetailPokemon from '../components/detailPokemon';
-import LoaderPage from '../components/loaderPage';
-import SelectPokemon from '../components/selectPokemon';
+import LoaderPage from '../components/atoms/loaderPage';
+import CardPokemon from '../components/molecules/cardPokemon';
+import SelectPokemon from '../components/molecules/selectPokemon';
+import DetailPokemon from '../components/organims/detailPokemon';
 import getPokemons from '../services/api-service';
 import filterPokemons from '../services/filterPokemon-service';
 import { PokemonProvider } from '../store/ContextPokemonData';
