@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { ContextPokemonData } from "../store/ContextPokemonData";
+import IDPokemon from "./idPokemon";
+import PokemonTypes from "./pokemonTypes";
+import TitlePokemon from "./titlePokemon";
 
 export default function DetailPokemon({showClose = false, handleClose}) {
   const {pokemonData} = useContext(ContextPokemonData);
@@ -11,15 +14,9 @@ export default function DetailPokemon({showClose = false, handleClose}) {
                 className="img_pokemon"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonData.id}.png`}
             />
-            <h3 className="number_pokemon">N° {pokemonData.id}</h3>
-            <p className="title_pokemon">{pokemonData.name}</p>
-            <div>
-                <ul className="list_pokemon_type">
-                    {pokemonData.types.map((type, index) => {
-                        return <li key={index} className="pill_pokemon_type" id={index}>{type.type.name}</li>
-                    })}
-                </ul>
-            </div>
+            <IDPokemon id={pokemonData.id}/>
+            <TitlePokemon name={pokemonData.name}/>
+            <PokemonTypes types={pokemonData.types} />
             <div className="container_pokemon_abilities">
                 <p className="number_pokemon text_align">ABILITIES</p>
                 <ul className="list_pokemon_type">

@@ -2,6 +2,9 @@ import { Card, Grid, Modal, Slide } from "@mui/material";
 import React, { useContext } from "react";
 import { ContextPokemonData } from "../store/ContextPokemonData";
 import DetailPokemon from "./detailPokemon";
+import IDPokemon from "./idPokemon";
+import PokemonTypes from "./pokemonTypes";
+import TitlePokemon from "./titlePokemon";
 
 export default function CardPokemon({pokemon}) {
   const [open, setOpen] = React.useState(false);
@@ -25,15 +28,9 @@ export default function CardPokemon({pokemon}) {
                 className="img_pokemon"
                 src={imagePokemon}
             />
-            <h3 className="number_pokemon">N° {pokemon.id}</h3>
-            <p className="title_pokemon">{pokemon.name}</p>
-            <div>
-                <ul className="list_pokemon_type">
-                    {pokemon.types.map((type, index) => {
-                        return <li key={index} className="pill_pokemon_type" id={index}>{type.type.name}</li>
-                    })}
-                </ul>
-            </div>
+            <IDPokemon id={pokemon.id}/>
+            <TitlePokemon name={pokemon.name}/>
+            <PokemonTypes types={pokemon.types} />
         </Card>
         <Modal
             open={open}
