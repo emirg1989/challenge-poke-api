@@ -1,10 +1,12 @@
-import { Card, Grid, MenuItem, Select } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
+import DetailPokemon from '../components/detailPokemon';
 import SelectPokemon from '../components/selectPokemon';
 import getPokemons from '../services/api-service';
 import filterPokemons from '../services/filterPokemon-service';
+import { PokemonProvider } from '../store/ContextPokemonData';
 
 export default function Home() {
   const [pokemons, setPokemons] = useState([]);
@@ -27,6 +29,7 @@ export default function Home() {
   };
 
   return (
+    <PokemonProvider>
     <div>
       <header>
         <div className="logo_header">
@@ -34,8 +37,8 @@ export default function Home() {
         </div>
       </header>
       <main className="body_main">
-      <Grid container spacing={2} columns={{ xs: 4, sm: 4, md: 12 }}>
-        <Grid item xs={12} sm={4} md={8}>
+      <Grid  container spacing={2} columns={{ xs: 4, sm: 4, md: 12 }}>
+        <Grid item xs={12} sm={12} md={8}>
           <div>
             <Grid container>
               <Grid item xs={12} sm={12} md={6}>
@@ -47,16 +50,17 @@ export default function Home() {
             </Grid>
             <Grid p={2} container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
               {pokemons.map(function(pokemon, i){
-                  return <CardPokemon pokemon={pokemon}  key={i} />;
+                  return <CardPokemon pokemon={pokemon} key={i} />;
               })}
             </Grid>
           </div>
-          </Grid>
-          <Grid item xs={0} sm={0} lg={4}>
-            <Card className="card_aside"><h3 className="title_aside">Detalle del Pokemon</h3></Card>
         </Grid>
+        <Grid item xs={0} sm={0} md={4}>
+            <Card className="card_aside"><DetailPokemon /></Card>
         </Grid>
-      </main>
-    </div>
+      </Grid>
+    </main>
+  </div>
+  </PokemonProvider>
   )
 }

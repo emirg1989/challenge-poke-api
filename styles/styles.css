@@ -21,6 +21,7 @@ header{
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.336);
     background-color: #FF452B;
+    z-index: 1;
 }
 
 .logo_header {
@@ -96,19 +97,14 @@ header{
 }
 
 .card_aside {
-    height: 85vh;
-    margin: 15px;
+    display: flex;
     position: fixed;
-    width: 450px;
+    flex: 1;
+    min-height: 80vh;
+    min-width: 25vw;
+    margin-top: 15px;
+    margin-left: 3vw;
     padding: 10px;
-}
-
-.title_aside {
-    color: #263238;
-    font-family: monospace;
-    font-weight: 600;
-    font-size: 25px;
-    text-align: center;
 }
 
 .container_select_type{
@@ -123,4 +119,77 @@ header{
     color: #FF452B;
     font-weight: bolder;
     margin-left: 0.5rem;
+}
+
+.body_detail_pokemon {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.pill_pokemon_ability {
+    background-color: #ECEFF1;
+    width: 90px;
+    height: 20px;
+    min-width: fit-content;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #607D8B;
+}
+
+.text_align {
+    text-align: center;
+}
+
+.container_pokemon_abilities {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.list_pokemon_stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2rem;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    padding-top: 5px;
+    height: auto;
+}
+
+.item_pokemon_stats {
+    color: rgb(0 0 0 / 54%);
+    text-transform: capitalize;
+    font-weight: 600;
+    align-self: center;
+    font-family: monospace;
+    margin: 5px 0 5px 0;
+    font-size: 14px;
+}
+
+.title_aside_pokemon {
+    color: #263238;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
+
+.subtitle_aside_pokemon {
+    color: #607D8B;
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+}
+
+.container_defaultaside_pokemon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: fit-content;
 }

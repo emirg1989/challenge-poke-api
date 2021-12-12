@@ -12,8 +12,8 @@ export default function SelectPokemon({type, handleChange}) {
             label="type"
             onChange={handleChange}
         >
-            {pokemonTypes.map((type) => {
-                return <MenuItem value={type}>{type}</MenuItem>;
+            {pokemonTypes.map((type, index) => {
+                return <MenuItem key={index} value={type}>{type}</MenuItem>;
             })}
         </Select>
     </div>
