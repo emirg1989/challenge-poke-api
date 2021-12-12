@@ -15,7 +15,6 @@ export default function CardPokemon({pokemon}) {
   const imagePokemon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   
   const selectPokemon = () => {
-    console.log(window.screen.width);
     setPokemon(pokemon);
     if(window.screen.width < 1200) {
         handleOpen();

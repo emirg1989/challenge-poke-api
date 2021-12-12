@@ -6,7 +6,6 @@ export const PokemonProvider = (props) => {
     const [pokemonData, setPokemonData] = useState(null);
 
     const setPokemon = (pokemon) => {
-        console.log(pokemon);
         setPokemonData(pokemon);
     }
 
