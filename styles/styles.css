@@ -77,6 +77,12 @@ header{
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.336) !important;
 }
 
+.card_pokemon:hover {
+    animation-duration: 1s;
+    animation-name: pulse;
+    animation-timing-function: ease-in-out;
+}
+
 .list_pokemon_type {
     display: flex;
     flex-direction: row;
@@ -214,4 +220,18 @@ header{
     display: flex;
     margin: 0px;
     font-family: fantasy;
+}
+
+@keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+        transform: scale3d(1, 1, 1);
+    }
 }
