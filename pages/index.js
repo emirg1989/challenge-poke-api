@@ -20,9 +20,10 @@ export default function Home() {
   }, []);
 
   const handleChange = (event) => {
-    setType(event.target.value);
-    const newPokemon = filterPokemons(pokemons, copyPokemons, event.target.value);
-    setPokemons(newPokemon);
+    const typeSelected = event.target.value
+    setType(typeSelected);
+    const newListPokemon = filterPokemons(pokemons, copyPokemons, typeSelected);
+    setPokemons(newListPokemon);
   };
 
   return (
@@ -33,7 +34,7 @@ export default function Home() {
         </div>
       </header>
       <main className="body_main">
-      <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid container spacing={2} columns={{ xs: 4, sm: 4, md: 12 }}>
         <Grid item xs={12} sm={4} md={8}>
           <div>
             <Grid container>
@@ -44,7 +45,7 @@ export default function Home() {
                 <SelectPokemon type={type} handleChange={handleChange} />
               </Grid>
             </Grid>
-            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid p={2} container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
               {pokemons.map(function(pokemon, i){
                   return <CardPokemon pokemon={pokemon}  key={i} />;
               })}
