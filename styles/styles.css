@@ -210,7 +210,7 @@ header{
 }
 
 .boton_close {
-    justify-content: end;
+    justify-content: flex-end;
     display: flex;
     margin: 0px;
     font-family: fantasy;
