@@ -1,6 +1,6 @@
 const baseURL = "https://pokeapi.co/api/v2";
 const path = "pokemon";
-console.log(baseURL);
+
 async function get(url) {
     const response = await fetch(url);
     const data = await response.json();

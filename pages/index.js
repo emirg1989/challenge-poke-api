@@ -2,6 +2,7 @@ import { Card, Grid, MenuItem, Select } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
+import SelectPokemon from '../components/selectPokemon';
 import getPokemons from '../services/api-service';
 import filterPokemons from '../services/filterPokemon-service';
 
@@ -21,7 +22,6 @@ export default function Home() {
   const handleChange = (event) => {
     setType(event.target.value);
     const newPokemon = filterPokemons(pokemons, copyPokemons, event.target.value);
-    console.log("newPokemon: ", newPokemon);
     setPokemons(newPokemon);
   };
 
@@ -36,34 +36,14 @@ export default function Home() {
       <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} sm={4} md={8}>
           <div>
-            <div>
-              <div>
-              <h1>Pokedex</h1>
-              </div>
-              <div>
-              <p>Seleccionado: </p>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={type}
-                label="type"
-                onChange={handleChange}
-              >
-                <MenuItem value="all">All</MenuItem>
-                <MenuItem value="grass">Grass</MenuItem>
-                <MenuItem value="fire">Fire</MenuItem>
-                <MenuItem value="poison">Poison</MenuItem>
-                <MenuItem value="water">Water</MenuItem>
-                <MenuItem value="bug">Bug</MenuItem>
-                <MenuItem value="normal">Normal</MenuItem>
-                <MenuItem value="electric">Electric</MenuItem>
-                <MenuItem value="ground">Ground</MenuItem>
-                <MenuItem value="fairy">Fairy</MenuItem>
-                <MenuItem value="psychic">Psychic</MenuItem>
-                <MenuItem value="dragon">Dragon</MenuItem>
-              </Select>
-              </div>
-            </div>
+            <Grid container>
+              <Grid item xs={12} sm={12} md={6}>
+                <h1 className="title_page">Pokedex</h1>
+              </Grid>
+              <Grid item xs={12} sm={12} md={6}>
+                <SelectPokemon type={type} handleChange={handleChange} />
+              </Grid>
+            </Grid>
             <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
               {pokemons.map(function(pokemon, i){
                   return <CardPokemon pokemon={pokemon}  key={i} />;

@@ -14,7 +14,7 @@ export default function CardPokemon({pokemon}) {
             <div>
                 <ul className="list_pokemon_type">
                     {pokemon.types.map((type, index) => {
-                        return <li className="pill_pokemon_type" id={index}>{type.type.name}</li>
+                        return <li key={index} className="pill_pokemon_type" id={index}>{type.type.name}</li>
                     })}
                 </ul>
             </div>
