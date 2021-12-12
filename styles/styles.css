@@ -127,6 +127,7 @@ header{
     height: 100%;
     flex-direction: column;
     padding: 1rem;
+    background-color: white;
 }
 
 .pill_pokemon_ability {
@@ -200,4 +201,16 @@ header{
     align-items: center;
     width: 100%;
     height: 50vh;
+}
+
+.body_modal {
+    width: 70vw;
+    height: max-content;
+}
+
+.boton_close {
+    justify-content: end;
+    display: flex;
+    margin: 0px;
+    font-family: fantasy;
 }

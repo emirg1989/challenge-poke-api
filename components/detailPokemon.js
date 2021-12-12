@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { ContextPokemonData } from "../store/ContextPokemonData";
 
-export default function DetailPokemon() {
+export default function DetailPokemon({showClose = false, handleClose}) {
   const {pokemonData} = useContext(ContextPokemonData);
   return (
        pokemonData ? 
         <div className="body_detail_pokemon">
+            {showClose ? <p className="boton_close" onClick={()=> handleClose()}>X</p>: null}
             <img
                 className="img_pokemon"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonData.id}.png`}
